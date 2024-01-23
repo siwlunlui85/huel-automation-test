@@ -21,8 +21,8 @@ const LoginCredentialsSchema = z.strictObject({
   password: z.string(),
 });
 
-export const ENVIRONMENT = z.strictObject({
-  projects: z.object({
+export const ENVIRONMENT = z.object({
+  projects: z.strictObject({
     Customer_Login: ProjectOptionsSchema({
       ADMIN_LOGIN_URL: z.string().url(),
       ADMIN_USER: LoginCredentialsSchema,
