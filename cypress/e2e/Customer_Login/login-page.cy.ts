@@ -18,8 +18,7 @@ project("Customer_Login", (env) => {
         customerLoginPage.loginButton.click();
       }),
       step("Then I should be logged in", () => {
-        // TODO: assert URL is correct
-        // https://uk.huel.com/account#/
+        cy.url().should("eq", "https://uk.huel.com/challenge");
       })
     );
   });
