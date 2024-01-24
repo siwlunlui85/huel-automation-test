@@ -40,22 +40,14 @@ project("BYOB_Page", (env) => {
         // cy.get("huel-button")
         //   .contains("Continue")
 
-        // I wanted to test if the button is disabled, but the element I am selecting isn't actually a button, since the button is in the shadow DOM of that element.
-        // So I needed to do this instead to find and click on a button inside the shadow DOM
+        // Find and click on a button inside the shadow DOM
         // cy.get('[data-testid="SummaryBarContinueButton"]')
-        // cy.get("huel-button").contains("Continue")
         //   .shadow()
         //   .get("button")
         //   .should("be.disabled");
-        // GetBYOBPage.huelButton.should("be.visible");
         // GetBYOBPage.continueButton.should("be.visible");
 
-        //**I noticed the A/B testing is enabled on the site, so I was adding conditional logic using the below code which is a bad practice. The above code is best practice to run for each variant.
-
-        // If both A/B env have the data-* attribute on the buttons, this should work:
-        // GetBYOBPage.continueButton.should("have.attr", "disabled", "true");
-
-        //Note: Even on the page without the data-testid it still seems to find the button before the page is fully generated which means that the page with the data-testid is generated first and then overridden by the one without data-testid, but cypress manages to grab the button fast enough and still checks it so it works for this below test, but i'm not sure if it will work if you start adding things into the cart because when you start adding things into the cart, the whole page might have loaded by then but either way, that's a problem for another time.
+        //Note: A/B sites have different html, so have to check for a different element
         cy.get("body")
           .then(($body) => {
             if ($body.find(".SummaryBarContinueButton").length) {

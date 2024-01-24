@@ -7,7 +7,7 @@ The Huel E2E repository implements end to end tests for the Huel platform.
 1. Install the version of Node specified in `.nvmrc` (e.g. by using Node Version Manager).
 2. Run `npm install`
 3. Copy one of the example environment files to `cypress.env.json`
-4. Please add your own password and email under `cypress.env.live.json` to make the login test work.
+4. Please add your own password and email under `cypress.env.live.json` to make the login test work. (Need to update code at some point, as there are routing failures)
 
 # Running Tests
 
