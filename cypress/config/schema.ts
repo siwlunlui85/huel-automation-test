@@ -2,7 +2,7 @@ import { z } from "zod";
 
 // Types
 
-export type Project = "Customer_Login" | "BYOB_Page";
+export type Project = "Customer_Login" | "BYOB_Page" | "Authentication_Login";
 type Environment = Record<Project, ReturnType<typeof ProjectOptionsSchema>>;
 
 // Helpers
@@ -29,6 +29,10 @@ export const ENVIRONMENT = z.object({
     }),
     BYOB_Page: ProjectOptionsSchema({
       GET_BYOB_URL: z.string().url(),
+    }),
+    Authentication_Login: ProjectOptionsSchema({
+      MICROSOFT_LOGIN_URL: z.string().url(),
+      MICROSOFT_USER: LoginCredentialsSchema,
     }),
   } satisfies Environment),
 });

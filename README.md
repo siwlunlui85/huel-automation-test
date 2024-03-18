@@ -1,6 +1,6 @@
-# Huel E2E
+# Cypress E2E Automation Tests Practice
 
-The Huel E2E repository implements end to end tests for the Huel platform.
+The Cypress E2E repository implements end to end tests for a website platform.
 
 # Setup
 
